@@ -75,27 +75,26 @@
 
 	//Update User
 	$app->put('/api/komentar/update/{komentar_id}',function(Request $request, Response $response){
-		$komentar_id = $request->getParam('komentar_id');
+		$komentar_id = $request->getAttribute('komentar_id');
 		$post_id = $request->getParam('post_id');
 		$isi = $request->getParam('isi');
 		$waktu = $request->getParam('waktu');
 		$penulis = $request->getParam('penulis');
 		$status = $request->getParam('status');
 
-
-		$sql = "UPDATE komentar SET 
+		$sql = "UPDATE komentar SET
 			post_id		= :post_id,
 			isi 		= :isi,
 			waktu 		= :waktu,
 			penulis 	= :penulis,
 			status 		= :status
 		WHERE komentar_id=$komentar_id";
+		echo $sql;
 
 		try{
 			$db = new db();
 			//connect
 			$db = $db->connect();
-
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':post_id',$post_id);
 			$stmt->bindParam(':isi',$isi);

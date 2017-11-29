@@ -89,7 +89,7 @@
 
 	//Update User
 	$app->put('/api/user/update/{nim}',function(Request $request, Response $response){
-		$nim = $request->getParam('nim');
+		$nim = $request->getAttribute('nim');
 		$email = $request->getParam('email');
 		$password = $request->getParam('password');
 		$nama = $request->getParam('nama');
@@ -104,7 +104,6 @@
 
 
 		$sql = "UPDATE user SET 
-			nim 		= :nim ,
 			email 		= :email,
 			password 	= :password,
 			nama 		= :nama,
@@ -124,7 +123,6 @@
 			$db = $db->connect();
 
 			$stmt = $db->prepare($sql);
-			$stmt->bindParam(':nim',$nim);
 			$stmt->bindParam(':email',$email);
 			$stmt->bindParam(':password',$password);
 			$stmt->bindParam(':nama',$nama);
