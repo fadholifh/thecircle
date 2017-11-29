@@ -80,7 +80,6 @@
 
 
 		$sql = "UPDATE forum SET 
-			forum_id	= :forum_id,
 			nama 		= :nama,
 			status 		= :status,
 			created 	= :created
