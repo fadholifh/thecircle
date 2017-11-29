@@ -15,4 +15,5 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 
 //user routes
 require '../src/routes/user.php';
+require '../src/routes/forum.php';
 $app->run();
