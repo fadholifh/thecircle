@@ -15,4 +15,7 @@ $app->get('/hello/{name}', function (Request $request, Response $response) {
 
 //user routes
 require '../src/routes/user.php';
+require '../src/routes/komentar.php';
+require '../src/routes/tag.php';
+require '../src/routes/forum.php';
 $app->run();
